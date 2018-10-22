@@ -1,7 +1,9 @@
 .search-result {
   width: 80%;
+  margin: auto;
 }
 
 .restaurant-list {
   list-style-type: none;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }

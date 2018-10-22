@@ -5,15 +5,27 @@ import "./resultList.css";
 
 class ResultList extends React.Component {
   componentDidMount() {
-    if (this.props.restaurants) {
+    if (this.props.restaurants.length) {
       console.log(this.props.restaurants);
     }
   }
   render() {
-    // console.log(this.props.restaurants);
+    console.log(this.props.restaurants);
     const restaurants = this.props.restaurants
       ? this.props.restaurants.map(res => {
-          return <RestaurantItem key={res.id} name={res.name} />;
+          return (
+            <RestaurantItem
+              key={res.id}
+              name={res.name}
+              location={res.location}
+              categories={res.categories}
+              image={res.image_url}
+              rating={res.rating}
+              price={res.price}
+              phone={res.display_phone}
+              url={res.url}
+            />
+          );
         })
       : null;
     return (
