@@ -36,6 +36,10 @@ form {
   cursor: pointer;
 }
 
+input[type="text"] {
+  background-color: #fff;
+}
+
 input:focus,
 button:focus {
   outline: none;

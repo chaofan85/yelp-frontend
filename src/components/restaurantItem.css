@@ -1,25 +1,26 @@
 .item-container {
   width: 90%;
-  height: 240px;
-  border: 1px solid black;
+  height: 245px;
+  border-top: 1px solid #ddd;
   margin: auto;
-  padding-top: 12px;
+  padding: 18px 0;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 .restaurant-pic {
   width: 210px;
   height: 210px;
-  border: 1px solid black;
   background-size: cover;
+  border-radius: 5px;
 }
 
 .restaurant-info {
   width: 400px;
   height: 210px;
-  border: 1px solid black;
+  margin-left: 50px;
+  font-size: 14px;
 }
 
 a {
@@ -27,4 +28,47 @@ a {
   color: #0073bb;
   font-size: 16px;
   font-weight: 700;
+}
+
+.rating {
+  width: 102px;
+  height: 18px;
+  background-size: 132px 560px;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+}
+
+.restaurant-name {
+  margin-bottom: 8px;
+}
+
+.price {
+  margin-right: 8px;
+}
+
+.price::after {
+  content: "•";
+  margin-left: 8px;
+  color: #bbb;
+}
+
+.category {
+  margin-right: 8px;
+}
+
+.category::after {
+  content: ",";
+}
+
+.phone {
+  margin-top: 5px;
+}
+
+.address1 {
+  margin-top: 15px;
+}
+
+.address2,
+.address3 {
+  margin-top: 5px;
 }
