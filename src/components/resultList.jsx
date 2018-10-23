@@ -11,110 +11,78 @@ class ResultList extends React.Component {
       location: "",
       sortByPriceFromHigh: false,
       sortByPriceFromLow: false,
-      sortByRatingFromHigh: false,
-      sortByRatingFromLow: false,
-      sortedList: []
+      sortByRatingFromHigh: false
     };
   }
   sortPriceFromLow = () => {
     if (this.state.sortByPriceFromLow) {
-      this.setState({
-        sortedList: [],
-        sortByPriceFromLow: false
-      });
+      this.setState({ sortByPriceFromLow: false });
       return;
     }
-    let prices = this.props.restaurants.filter(res => res.price);
-    let sorted = prices.sort(
-      (res1, res2) => res1.price.length - res2.price.length
-    );
 
     this.setState({
-      sortedList: sorted,
       sortByPriceFromLow: true,
       sortByPriceFromHigh: false,
-      sortByRatingFromHigh: false,
-      sortByRatingFromLow: false
+      sortByRatingFromHigh: false
     });
   };
 
   sortPriceFromHigh = () => {
     if (this.state.sortByPriceFromHigh) {
-      this.setState({
-        sortedList: [],
-        sortByPriceFromHigh: false
-      });
+      this.setState({ sortByPriceFromHigh: false });
       return;
     }
-    let prices = this.props.restaurants.filter(res => res.price);
-    let sorted = prices.sort(
-      (res1, res2) => res2.price.length - res1.price.length
-    );
 
     this.setState({
-      sortedList: sorted,
       sortByPriceFromHigh: true,
       sortByPriceFromLow: false,
-      sortByRatingFromHigh: false,
-      sortByRatingFromLow: false
-    });
-  };
-
-  sortRatingFromLow = () => {
-    if (this.state.sortByRatingFromLow) {
-      this.setState({
-        sortedList: [],
-        sortByRatingFromLow: false
-      });
-      return;
-    }
-    let ratings = this.props.restaurants.filter(res => res.rating);
-    let sorted = ratings.sort((res1, res2) => res1.rating - res2.rating);
-
-    this.setState({
-      sortedList: sorted,
-      sortByRatingFromLow: true,
-      sortByRatingFromHigh: false,
-      sortByPriceFromLow: false,
-      sortByPriceFromHigh: false
+      sortByRatingFromHigh: false
     });
   };
 
   sortRatingFromHigh = () => {
     if (this.state.sortByRatingFromHigh) {
-      this.setState({
-        sortedList: [],
-        sortByRatingFromHigh: false
-      });
+      this.setState({ sortByRatingFromHigh: false });
       return;
     }
-    let ratings = this.props.restaurants.filter(res => res.rating);
-    let sorted = ratings.sort((res1, res2) => res2.rating - res1.rating);
 
     this.setState({
-      sortedList: sorted,
       sortByRatingFromHigh: true,
-      sortByRatingFromLow: false,
       sortByPriceFromLow: false,
       sortByPriceFromHigh: false
     });
   };
 
-  // componentDidUpdate() {
-  //   console.log(this.props.location );
-  // }
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps.location);
-    console.log(this.props.location);
+  getList = () => {
+    let price1 = this.state.sortByPriceFromLow;
+    let price2 = this.state.sortByPriceFromHigh;
+    let rate = this.state.sortByRatingFromHigh;
 
+    if (!price1 && !price2 && !rate) return this.props.restaurants;
+    if (price1) {
+      let prices = this.props.restaurants.filter(res => res.price);
+      console.log(prices);
+      return prices.sort((res1, res2) => res1.price.length - res2.price.length);
+    }
+    if (price2) {
+      let prices = this.props.restaurants.filter(res => res.price);
+      console.log(prices);
+      return prices.sort((res1, res2) => res2.price.length - res1.price.length);
+    }
+    if (rate) {
+      let ratings = this.props.restaurants.filter(res => res.rating);
+      console.log(ratings);
+      return ratings.sort((res1, res2) => res2.rating - res1.rating);
+    }
+  };
+
+  componentWillReceiveProps(nextProps) {
     if (nextProps.location !== this.props.location) {
       this.setState({
         sortByPriceFromHigh: false,
         sortByPriceFromLow: false,
         sortByRatingFromHigh: false,
-        sortByRatingFromLow: false,
-        location: nextProps.location,
-        sortedList: {}
+        location: nextProps.location
       });
     }
   }
@@ -123,11 +91,10 @@ class ResultList extends React.Component {
     let restaurantsList;
     if (!this.props.restaurants) {
       restaurantsList = null;
-    } else if (this.state.sortedList.length) {
-      restaurantsList = this.state.sortedList;
     } else {
-      restaurantsList = this.props.restaurants;
+      restaurantsList = this.getList();
     }
+    // console.log(restaurantsList);
     const restaurants = this.props.restaurants
       ? restaurantsList.map(res => {
           return (
