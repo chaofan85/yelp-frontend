@@ -112,13 +112,28 @@ class ResultList extends React.Component {
       <section className="result-area">
         {this.props.restaurants.length ? (
           <section className="filter">
-            <button className="price-filter" onClick={this.sortPriceFromLow}>
+            <button
+              className={`price-filter ${
+                this.state.sortByPriceFromLow ? "sort-on" : ""
+              }`}
+              onClick={this.sortPriceFromLow}
+            >
               price &#8593;
             </button>
-            <button className="price-filter" onClick={this.sortPriceFromHigh}>
+            <button
+              className={`price-filter ${
+                this.state.sortByPriceFromHigh ? "sort-on" : ""
+              }`}
+              onClick={this.sortPriceFromHigh}
+            >
               price &#8595;
             </button>
-            <button className="rating-filter" onClick={this.sortRatingFromHigh}>
+            <button
+              className={`rating-filter ${
+                this.state.sortByRatingFromHigh ? "sort-on" : ""
+              }`}
+              onClick={this.sortRatingFromHigh}
+            >
               rating
             </button>
           </section>

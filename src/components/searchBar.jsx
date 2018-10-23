@@ -13,6 +13,7 @@ class SearchBar extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.state.inputBody) return;
     this.props.searchByLocation(this.state.inputBody);
     this.props.currentLocation(this.state.inputBody);
   }

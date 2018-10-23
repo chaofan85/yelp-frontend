@@ -5,7 +5,7 @@ form {
 
 .searchbar-container {
   width: 70%;
-  margin: 50px auto;
+  margin: 30px auto;
 }
 
 .search-bar {
@@ -34,6 +34,8 @@ form {
   vertical-align: middle;
   background: none;
   cursor: pointer;
+  box-shadow: 1px 1px 1px #888;
+  border: none;
 }
 
 input[type="text"] {
