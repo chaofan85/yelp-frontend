@@ -61,17 +61,14 @@ class ResultList extends React.Component {
     if (!price1 && !price2 && !rate) return this.props.restaurants;
     if (price1) {
       let prices = this.props.restaurants.filter(res => res.price);
-      console.log(prices);
       return prices.sort((res1, res2) => res1.price.length - res2.price.length);
     }
     if (price2) {
       let prices = this.props.restaurants.filter(res => res.price);
-      console.log(prices);
       return prices.sort((res1, res2) => res2.price.length - res1.price.length);
     }
     if (rate) {
       let ratings = this.props.restaurants.filter(res => res.rating);
-      console.log(ratings);
       return ratings.sort((res1, res2) => res2.rating - res1.rating);
     }
   };
@@ -87,14 +84,13 @@ class ResultList extends React.Component {
     }
   }
   render() {
-    // console.log(this.props.restaurants);
     let restaurantsList;
     if (!this.props.restaurants) {
       restaurantsList = null;
     } else {
       restaurantsList = this.getList();
     }
-    // console.log(restaurantsList);
+
     const restaurants = this.props.restaurants
       ? restaurantsList.map(res => {
           return (
