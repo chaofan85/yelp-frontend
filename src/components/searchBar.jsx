@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { searchByLocation } from "../actions/searchActions";
+import { searchByLocation, currentLocation } from "../actions/searchActions";
 import "./searchBar.css";
 
 class SearchBar extends React.Component {
@@ -14,6 +14,7 @@ class SearchBar extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.searchByLocation(this.state.inputBody);
+    this.props.currentLocation(this.state.inputBody);
   }
 
   handleChange() {
@@ -45,7 +46,8 @@ class SearchBar extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    searchByLocation: location => dispatch(searchByLocation(location))
+    searchByLocation: location => dispatch(searchByLocation(location)),
+    currentLocation: location => dispatch(currentLocation(location))
   };
 }
 

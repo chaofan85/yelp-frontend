@@ -12,8 +12,6 @@ const RestaurantItem = props => {
     );
   });
 
-  console.log(props.location);
-
   return (
     <li className="item-container">
       <div

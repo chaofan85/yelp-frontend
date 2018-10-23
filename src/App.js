@@ -3,7 +3,6 @@ import "./App.css";
 import Header from "./components/header";
 import SearchBar from "./components/searchBar";
 import ResultList from "./components/resultList";
-// import $ from "jquery";
 
 class App extends Component {
   render() {
