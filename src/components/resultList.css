@@ -38,3 +38,10 @@
   border-color: #41a700;
   color: #348c42;
 }
+
+.spinner {
+  width: 200px;
+  height: 100px;
+  margin: auto;
+  background-color: red;
+}

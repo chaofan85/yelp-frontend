@@ -110,7 +110,7 @@ class ResultList extends React.Component {
       : null;
     return (
       <section className="result-area">
-        {this.props.restaurants.length ? (
+        {restaurants.length ? (
           <section className="filter">
             <button
               className={`price-filter ${
@@ -138,6 +138,7 @@ class ResultList extends React.Component {
             </button>
           </section>
         ) : null}
+
         <section className="search-result">
           <ul className="restaurant-list">{restaurants}</ul>
         </section>

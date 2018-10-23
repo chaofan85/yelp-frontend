@@ -11,7 +11,6 @@ const receiveByLocation = data => {
 };
 
 const receiveLocation = location => {
-  console.log(location);
   return {
     type: RECEIVE_LOCATION,
     location
@@ -25,7 +24,5 @@ export const searchByLocation = location => dispatch => {
 };
 
 export const currentLocation = location => dispatch => {
-  // console.log(location);
-
   dispatch(receiveLocation(location));
 };
